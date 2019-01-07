@@ -95,6 +95,8 @@ myButton.onRelease = function(){
   console.log("Bye bye!");
 }
 ```
+## Contributing
+If there's a missing feature you'd like to see on p5.clickable, feel free to write it and submit a pull request. Also feel free to submit issues and requests for future features.
 
 ## Licensing  
 `p5.clickable` is licensed under the MIT License.
