@@ -1,7 +1,7 @@
 # 🖱 p5.clickable
 **p5.clickable** is a [p5.js](http://p5js.org) library that lets you create and customize buttons and assign event based behaviours to them. Plain speaking, with **p5.clickable** you can create buttons and define what happens when the user *hovers over*, *clicks*, *releases* or moves their cursor *out* of them.
 
-![image](https://lartu.github.io/projects/p5.clickable/canvas.png)
+![image](https://lartu.github.io/projects/p5.clickable/pic.png)
 
 ## Code Example
 With **p5.clickable** and just a few lines of code you can get a button up and running. For example, to create a plain button at (20, 20) that when pressed changes color and shows an alert message you just do:
@@ -64,4 +64,4 @@ function draw(){
 ```
 This is very important, for without this step your button will not be shown (nor work).
 
-*TODO: Explicar funciones de click!*
+All this is very nice, but a button is nothing if it doesn't 
