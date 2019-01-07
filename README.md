@@ -13,4 +13,25 @@ myButton.onPress = function(){  //When myButton is pressed
 ```
 Easy as pie!
 
+## Live Example
+[This example](https://lartu.github.io/projects/p5.clickable/example.html) showcasts some of the main features of this library.
+Its source code is available in the `example` folder of this repository.
+
+## Documentation
+
+**p5.clickable** provides the `Clickable` class (aka, the buttons). To create a new button just instantiate a new Clickable, like this:
+```
+myButton = new Clickable();
+```
+
+The starting position of a Clickable defaults to (0, 0) and its size to (100, 50). To move a Clickable you can change its `x` and `y` properties:
+```
+myButton.x = 100;
+myButton.y = 200;
+```
+or use the `locate` method:
+```
+myButton.locate(100, 200);
+```
+
 *(To be finished)*
