@@ -1,2 +1,2 @@
-# p5clickable
-An event driven button library for P5.js
+# 🖱 p5.clickable
+(to be completed)
