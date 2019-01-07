@@ -19,7 +19,7 @@ Easy as pie!
 [This example](https://lartu.github.io/projects/p5.clickable/example.html) showcasts some of the main features of this library.
 Its source code is available in the `example` folder of this repository.
 
-## How To Use
+## How to Create a Button
 
 **p5.clickable** provides the `Clickable` class (aka, the buttons). To create a new button just instantiate a new Clickable, like this:
 ```
@@ -64,4 +64,40 @@ function draw(){
 ```
 This is very important, for without this step your button will not be shown (nor work).
 
-All this is very nice, but a button is nothing if it doesn't 
+## Button Methods
+
+Clickables provide four methods that are called when the user interacts with the Clickable in different ways.
+
+**onOutside** is called whenever the cursor is outside the area of the Clickable.
+```
+myButton.onOutside = function(){
+  console.log("Hey! Press me!");
+}
+```
+
+**onHover** is called whenever the cursor is within the area of the Clickable, but it's not being pressed:
+```
+myButton.onHover = function(){
+  console.log("The cursor is over me!");
+}
+```
+
+**onPress** is called when the user presses a Clickable.
+```
+myButton.onPress = function(){
+  console.log("I've been pressed!");
+}
+```
+
+Finally, **onRelease** is called whenever the user clicks a Clickable and then releases the click while within the area of the Clickable.
+```
+myButton.onRelease = function(){
+  console.log("Bye bye!");
+}
+```
+
+## Licensing  
+`p5.clickable` is licensed under the MIT License.
+
+This repo also includes code from other libraries:  
+* [p5.js](https://github.com/processing/p5.js) is licensed under LGPL 2.1
