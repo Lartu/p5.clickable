@@ -1,36 +1,38 @@
 //Determines if the mouse was pressed on the previous frame
-var mouseWasPressed = false;
+var cl_mouseWasPressed = false;
 //Last hovered button
-var lastHovered = null;
+var cl_lastHovered = null;
 //Last pressed button
-var lastClicked = null;
+var cl_lastClicked = null;
 //All created buttons
-var clickables = [];
+var cl_clickables = [];
 
 //This function is what makes the magic happen and should be ran after
 //each draw cycle.
-function runGUI(){
-	for(i = 0; i < clickables.length; ++i){
-		if(lastHovered != clickables[i])
-			clickables[i].onOutside();
+p5.prototype.runGUI = function(){
+	for(i = 0; i < cl_clickables.length; ++i){
+		if(cl_lastHovered != cl_clickables[i])
+			cl_clickables[i].onOutside();
 	}
-	if(lastHovered != null){
-		if(lastClicked != lastHovered){
-			lastHovered.onHover();
+	if(cl_lastHovered != null){
+		if(cl_lastClicked != cl_lastHovered){
+			cl_lastHovered.onHover();
 		}
 	}
-	if(!mouseWasPressed && lastClicked != null){
-		lastClicked.onPress();
+	if(!cl_mouseWasPressed && cl_lastClicked != null){
+		cl_lastClicked.onPress();
 	}
-	if(mouseWasPressed && !mouseIsPressed && lastClicked != null){
-		if(lastClicked == lastHovered){
-			lastClicked.onRelease();
+	if(cl_mouseWasPressed && !mouseIsPressed && cl_lastClicked != null){
+		if(cl_lastClicked == cl_lastHovered){
+			cl_lastClicked.onRelease();
 		}
-		lastClicked = null;
+		cl_lastClicked = null;
 	}
-	lastHovered = null;
-	mouseWasPressed = mouseIsPressed;
+	cl_lastHovered = null;
+	cl_mouseWasPressed = mouseIsPressed;
 }
+
+p5.prototype.registerMethod('post', p5.prototype.runGUI);
 
 //Button Class
 function Clickable(){
@@ -85,11 +87,11 @@ function Clickable(){
 		text(this.text, this.x+1, this.y+1, this.width, this.height);
 		if(mouseX >= this.x && mouseY >= this.y 
 		   && mouseX < this.x+this.width && mouseY < this.y+this.height){
-			lastHovered = this;
-			if(mouseIsPressed && !mouseWasPressed)
-				lastClicked = this;
+			cl_lastHovered = this;
+			if(mouseIsPressed && !cl_mouseWasPressed)
+				cl_lastClicked = this;
 		}
 	}
 	
-	clickables.push(this);
+	cl_clickables.push(this);
 }

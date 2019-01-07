@@ -32,8 +32,15 @@ function setup() {
   }
   
   click2 = new Clickable();
+  click2.cornerRadius = 0;
   click2.locate(60, 60);
   click2.resize(80, 80);
+  click2.onOutside = function(){
+	  this.color = "#FFFFFF";
+  }
+  click2.onHover = function(){
+	  this.color = "#AA33AA";
+  }
   click2.onPress = function(){
 	  alert("Hi there!");
   }
@@ -43,5 +50,4 @@ function draw() {
   background(255);
   click1.draw();
   click2.draw();
-  runGUI();
 }
