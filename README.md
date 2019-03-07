@@ -26,7 +26,13 @@ Its source code is available in the `example` folder of this repository.
 myButton = new Clickable();
 ```
 
-The starting position of a Clickable defaults to (0, 0) and its size to (100, 50). To move a Clickable you can change its `x` and `y` properties:
+The starting position of a Clickable defaults to (0, 0) and its size to (100, 50). You can create it at a different location:
+
+```
+myButton = new Clickable(200,300);
+```
+
+To move a Clickable you can change its `x` and `y` properties:
 ```
 myButton.x = 100;
 myButton.y = 200;
