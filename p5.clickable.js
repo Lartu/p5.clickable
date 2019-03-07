@@ -35,11 +35,11 @@ p5.prototype.runGUI = function(){
 p5.prototype.registerMethod('post', p5.prototype.runGUI);
 
 //Button Class
-function Clickable(){
-	this.x = 0;						//X position of the clickable
-	this.y = 0;						//Y position of the clickable
-	this.width = 100;				//Width of the clickable
-	this.height = 50;				//Height of the clickable
+function Clickable(x,y){
+	this.x = x || 0;			//X position of the clickable
+	this.y = y || 0;			//Y position of the clickable
+	this.width = 100;			//Width of the clickable
+	this.height = 50;			//Height of the clickable
 	this.color = "#FFFFFF";			//Background color of the clickable
 	this.cornerRadius = 10;			//Corner radius of the clickable
 	this.strokeWeight = 2;			//Stroke width of the clickable
@@ -57,7 +57,7 @@ function Clickable(){
 	}
 	
 	this.onPress = function(){
-		//This fucking is ran when the clickable is pressed.
+		//This function is ran when the clickable is pressed.
 	}
 	
 	this.onRelease = function(){
