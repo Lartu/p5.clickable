@@ -20,7 +20,7 @@ function setup() {
 	this.text = "Hello there!";
 	this.textColor = "#000000";
   }
-  //This fucking is ran when the clickable is pressed.
+  //This function is ran when the clickable is pressed.
   click1.onPress = function(){
 	  this.stroke = "#FF0000";
   }
