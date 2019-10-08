@@ -54,12 +54,12 @@ myButton.resize(250, 100);
 
 Clickables also contain other properties that can be changed to alter their appearance:
 ```
-myButton.color = "#FFFFFF";			  //Background color of the clickable
-myButton.cornerRadius = 10;			  //Corner radius of the clickable
-myButton.strokeWeight = 2;			  //Stroke width of the clickable
-myButton.stroke = "#000000";		  //Border color of the clickable
-myButton.text = "Press Me";			  //Text of the clickable
-myButton.textColor = "#000000";	  //Color of the text
+myButton.color = "#FFFFFF";       //Background color of the clickable
+myButton.cornerRadius = 10;       //Corner radius of the clickable
+myButton.strokeWeight = 2;        //Stroke width of the clickable
+myButton.stroke = "#000000";      //Border color of the clickable
+myButton.text = "Press Me";       //Text of the clickable
+myButton.textColor = "#000000";   //Color of the text
 myButton.textSize = 12;           //Size of the text
 myButton.textFont = "sans-serif"; //Font of the text
 ```
