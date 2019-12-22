@@ -81,7 +81,7 @@ You can also use the `resize` method to change the size of a Clickable.
 myButton.resize(250, 100);
 ```
 
-### Altering the appearance of a Clickable
+### Altering the Appearance of a Clickable
 
 Clickables contain properties that can be changed to alter their appearance:
 
