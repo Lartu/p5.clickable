@@ -25,6 +25,17 @@ Easy as pie!
 
 ## :microscope: Documentation
 
+### Including the p5.clickable Library
+
+To include the **p5.clickable** library into your p5.js project, copy the [p5.clickable.js](library/p5.clickable.js) file into
+your project directory and then add the line
+
+```html
+<script src="p5.clickable.js"></script>
+```
+
+to the HTML file that includes your p5.js script.
+
 ### Creating a Clickable
 
 **p5.clickable** provides the `Clickable` class (a *Clickable* is just a button). To create a button just instantiate a new Clickable, like this:
