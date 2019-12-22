@@ -6,7 +6,7 @@
 </p>
 
 
-**p5.clickable** is a [p5.js](http://p5js.org) library that lets you create and customize buttons and assign event based behaviours to them. Plain speaking, with **p5.clickable** you can create buttons and define what happens when the user *hovers over*, *clicks*, *releases* or moves their cursor *out* of them.
+Welcome! This is **p5.clickable**, a [p5.js](http://p5js.org) library that lets you create and customize buttons and assign event-based behaviours to them. With **p5.clickable** you can create buttons and define what happens when the user *hovers over*, *clicks*, *releases* or *moves* the cursor *outside* of them.
 
 ![image](https://lartu.github.io/projects/p5.clickable/pic.png)
 
