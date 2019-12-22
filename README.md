@@ -8,11 +8,12 @@
 
 Welcome! This is **p5.clickable**, a [p5.js](http://p5js.org) library that lets you create and customize buttons and assign event-based behaviours to them. With **p5.clickable** you can create buttons and define what happens when the user *hovers over*, *clicks*, *releases* or *moves* the cursor *outside* of them.
 
-Can't wait? Check [this example](https://lartu.github.io/projects/p5.clickable/example.html) to see some of the things this library can do. Its source code is available in the `example` folder of this repository.
+Can't wait? Check [this **live example**](https://lartu.github.io/projects/p5.clickable/example.html) to see some of the things this library can do. Its source code is available in the `example` folder of this repository.
 
-## Code Example
-With **p5.clickable** and just a few lines of code you can get a button up and running. For example, to create a plain button at (20, 20) that when pressed changes color and shows an alert message you just do:
-``` 
+## :telescope: Code Example
+With **p5.clickable** you can get a button up and running with just a few lines of code. For example, to create a plain white button at (20, 20) that when pressed changes color and shows an alert message you do:
+
+```javascript
 myButton = new Clickable();     //Create button
 myButton.locate(20, 20);        //Position Button
 myButton.onPress = function(){  //When myButton is pressed
@@ -22,26 +23,31 @@ myButton.onPress = function(){  //When myButton is pressed
 ```
 Easy as pie!
 
-## How to Create a Button
+## :microscope: Documentation
 
-**p5.clickable** provides the `Clickable` class (aka, the buttons). To create a new button just instantiate a new Clickable, like this:
-```
+**p5.clickable** provides the `Clickable` class (a *Clickable* is just a button). To create a button just instantiate a new Clickable, like this:
+
+```javascript
 myButton = new Clickable();
 ```
 
-The starting position of a Clickable defaults to (0, 0) and its size to (100, 50). You can create it at a different location:
+The starting position of a Clickable defaults to (0, 0) and its size to (100, 50). You can also create it at a different location:
 
-```
+```javascript
 myButton = new Clickable(200,300);
 ```
 
-To move a Clickable you can change its `x` and `y` properties:
-```
+To move a Clickable you can change its `x` and `y` properties. You can also use this properties to read the current
+location of a Clickable.
+
+```javascript
 myButton.x = 100;
 myButton.y = 200;
 ```
-or use the `locate` method:
-```
+
+You can also use the `locate` method to change the location of a Clickable:
+
+```javascript
 myButton.locate(100, 200);
 ```
 
