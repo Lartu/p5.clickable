@@ -1,3 +1,12 @@
+//        _____      _ _      _         _     _      
+//       |  ___|    | (_)    | |       | |   | |     
+//  _ __ |___ \  ___| |_  ___| | ____ _| |__ | | ___ 
+// | '_ \    \ \/ __| | |/ __| |/ / _` | '_ \| |/ _ \
+// | |_) /\__/ / (__| | | (__|   < (_| | |_) | |  __/
+// | .__/\____(_)___|_|_|\___|_|\_\__,_|_.__/|_|\___|
+// | | www.github.com/lartu/p5.clickable
+// |_| created by Lartu, version 1.2
+
 //Determines if the mouse was pressed on the previous frame
 var cl_mouseWasPressed = false;
 //Last hovered button
