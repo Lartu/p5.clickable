@@ -10,10 +10,6 @@ Welcome! This is **p5.clickable**, a [p5.js](http://p5js.org) library that lets 
 
 Can't wait? Check [this example](https://lartu.github.io/projects/p5.clickable/example.html) to see some of the things this library can do. Its source code is available in the `example` folder of this repository.
 
-<p align="center">
-  <img src="https://lartu.github.io/projects/p5.clickable/pic.png">
-</p>
-
 ## Code Example
 With **p5.clickable** and just a few lines of code you can get a button up and running. For example, to create a plain button at (20, 20) that when pressed changes color and shows an alert message you just do:
 ``` 
