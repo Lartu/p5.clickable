@@ -70,62 +70,76 @@ You can also use the `resize` method to change the size of a Clickable.
 myButton.resize(250, 100);
 ```
 
-Clickables also contain other properties that can be changed to alter their appearance:
-```
-myButton.color = "#FFFFFF";       //Background color of the clickable
-myButton.cornerRadius = 10;       //Corner radius of the clickable
-myButton.strokeWeight = 2;        //Stroke width of the clickable
-myButton.stroke = "#000000";      //Border color of the clickable
-myButton.text = "Press Me";       //Text of the clickable
-myButton.textColor = "#000000";   //Color of the text
-myButton.textSize = 12;           //Size of the text
-myButton.textFont = "sans-serif"; //Font of the text
+### Altering the appearance of a Clickable
+
+Clickables contain properties that can be changed to alter their appearance:
+
+```javascript
+myButton.color = "#FFFFFF";       //Background color of the clickable (hex number as a string)
+myButton.cornerRadius = 10;       //Corner radius of the clickable (float)
+myButton.strokeWeight = 2;        //Stroke width of the clickable (float)
+myButton.stroke = "#000000";      //Border color of the clickable (hex number as a string)
+myButton.text = "Press Me";       //Text of the clickable (string)
+myButton.textColor = "#000000";   //Color of the text (hex number as a string)
+myButton.textSize = 12;           //Size of the text (integer)
+myButton.textFont = "sans-serif"; //Font of the text (string)
 ```
 
-To **display** a Clickable, you have to use its `draw` method. For example:
-```
-function draw(){
-  myButton.draw();
+### Displaying a Clickable
+
+To **display** a Clickable, you have to call its `draw` method inside the `draw` function of your p5.js script.
+
+```javascript
+function draw(){ // This is the p5.js draw function.
+  //...
+  myButton.draw(); // <- Draw the 'myButton' Clickable
+  //...
 }
 ```
-This is very important, for without this step your button will not be shown (nor work).
 
-## Button Methods
+This is very important! If you don't call this method your button will not be shown and it also **won't respond
+to any events**!
 
-Clickables provide four methods that are called when the user interacts with the Clickable in different ways.
+### Clickable Events
 
-**onOutside** is called whenever the cursor is outside the area of the Clickable.
-```
+The Clickable class provide four methods that are called when the user interacts with a Clickable: `onOutside`, `onHover`, `onPress` and `onRelease`.
+
+`onOutside` is called whenever the cursor is not hovering over the Clickable.
+
+```javascript
 myButton.onOutside = function(){
   console.log("Hey! Press me!");
 }
 ```
 
-**onHover** is called whenever the cursor is within the area of the Clickable, but it's not being pressed:
-```
+`onHover` is called whenever the cursor is hovering over a Clickable, but it is not being pressed.
+
+```javascript
 myButton.onHover = function(){
   console.log("The cursor is over me!");
 }
 ```
 
-**onPress** is called when the user presses a Clickable.
-```
+`onPress` is called when the user presses the Clickable.
+
+```javascript
 myButton.onPress = function(){
-  console.log("I've been pressed!");
+  console.log("I have been pressed!");
 }
 ```
 
-Finally, **onRelease** is called whenever the user clicks a Clickable and then releases the click while within the area of the Clickable.
-```
+`onRelease` is called when the user clicks a Clickable and then releases the click while within the area of the Clickable.
+
+```javascript
 myButton.onRelease = function(){
-  console.log("Bye bye!");
+  console.log("I have been released!");
 }
 ```
-## Contributing
-If there's a missing feature you'd like to see on p5.clickable, feel free to write it and submit a pull request. Also feel free to submit issues and requests for future features.
 
-## Licensing  
-`p5.clickable` is licensed under the MIT License.
+## :beers: Contributing
+If there's a missing feature you'd like to see on p5.clickable, feel free to write it and submit a pull request. Something broke? Please try to fix it! Also feel free to submit issues, bug reports and requests for future features.
 
-This repo also includes code from other libraries:  
-* [p5.js](https://github.com/processing/p5.js) is licensed under LGPL 2.1
+## :scroll: Licensing  
+The `p5.clickable` library is licensed under the MIT License. You can find a copy of the MIT License on this repository.
+
+This repository also includes code from the [p5.js](https://github.com/processing/p5.js) library, that is licensed under the LGPL 2.1 license.
