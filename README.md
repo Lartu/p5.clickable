@@ -1,4 +1,11 @@
-# 🖱 p5.clickable
+<p align="center">
+  <img src="https://github.com/Lartu/p5.clickable/blob/master/images/logo.png">
+  <br><br>
+  <img src="https://img.shields.io/badge/license-MIT-red?style=flat-square">
+  <img src="https://img.shields.io/badge/current_version-1.2-green.svg?style=flat-square">
+</p>
+
+
 **p5.clickable** is a [p5.js](http://p5js.org) library that lets you create and customize buttons and assign event based behaviours to them. Plain speaking, with **p5.clickable** you can create buttons and define what happens when the user *hovers over*, *clicks*, *releases* or moves their cursor *out* of them.
 
 ![image](https://lartu.github.io/projects/p5.clickable/pic.png)
