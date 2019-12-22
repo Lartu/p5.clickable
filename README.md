@@ -25,6 +25,8 @@ Easy as pie!
 
 ## :microscope: Documentation
 
+### Creating a Clickable
+
 **p5.clickable** provides the `Clickable` class (a *Clickable* is just a button). To create a button just instantiate a new Clickable, like this:
 
 ```javascript
@@ -37,6 +39,8 @@ The starting position of a Clickable defaults to (0, 0) and its size to (100, 50
 myButton = new Clickable(200,300);
 ```
 
+### Moving a Clickable
+
 To move a Clickable you can change its `x` and `y` properties. You can also use this properties to read the current
 location of a Clickable.
 
@@ -45,19 +49,24 @@ myButton.x = 100;
 myButton.y = 200;
 ```
 
-You can also use the `locate` method to change the location of a Clickable:
+You can also use the `locate` method to change the location of a Clickable.
 
 ```javascript
 myButton.locate(100, 200);
 ```
 
-Likewise, to resize a Clickable you can modify its `width` and `height` properties:
-```
+### Resizing a Clickable
+
+To resize a Clickable you can modify its `width` and `height` properties. You can also use this properties to read the current size of a Clickable.
+
+```javascript
 myButton.width = 250;
 myButton.height = 100;
 ```
-or use the `resize` method:
-```
+
+You can also use the `resize` method to change the size of a Clickable.
+
+```javascript
 myButton.resize(250, 100);
 ```
 
