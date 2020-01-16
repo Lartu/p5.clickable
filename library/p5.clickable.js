@@ -1,6 +1,6 @@
-//        _____      _ _      _         _     _      
-//       |  ___|    | (_)    | |       | |   | |     
-//  _ __ |___ \  ___| |_  ___| | ____ _| |__ | | ___ 
+//        _____      _ _      _         _     _
+//       |  ___|    | (_)    | |       | |   | |
+//  _ __ |___ \  ___| |_  ___| | ____ _| |__ | | ___
 // | '_ \    \ \/ __| | |/ __| |/ / _` | '_ \| |/ _ \
 // | |_) /\__/ / (__| | | (__|   < (_| | |_) | |  __/
 // | .__/\____(_)___|_|_|\___|_|\_\__,_|_.__/|_|\___|
@@ -44,11 +44,12 @@ p5.prototype.runGUI = function(){
 p5.prototype.registerMethod('post', p5.prototype.runGUI);
 
 //Button Class
-function Clickable(x,y){
+function Clickable(x,y,img)
+{
 	this.x = x || 0;			//X position of the clickable
 	this.y = y || 0;			//Y position of the clickable
-	this.width = 100;			//Width of the clickable
-	this.height = 50;			//Height of the clickable
+	this.width = img ? img.width : 100;			//Width of the clickable
+	this.height = img ? img.height : 50;			//Height of the clickable
 	this.color = "#FFFFFF";			//Background color of the clickable
 	this.cornerRadius = 10;			//Corner radius of the clickable
 	this.strokeWeight = 2;			//Stroke width of the clickable
@@ -56,55 +57,63 @@ function Clickable(x,y){
 	this.text = "Press Me";			//Text of the clickable
 	this.textColor = "#000000";		//Color for the text shown
 	this.textSize = 12;			//Size for the text shown
-	this.textFont = "sans-serif";		//Font for the text shown	
-	
+	this.textFont = "sans-serif";		//Font for the text shown
+	this.img = img;
 	this.onHover = function(){
 		//This function is ran when the clickable is hovered but not
 		//pressed.
 	}
-	
+
 	this.onOutside = function(){
 		//This function is ran when the clickable is NOT hovered.
 	}
-	
+
 	this.onPress = function(){
 		//This function is ran when the clickable is pressed.
 	}
-	
+
 	this.onRelease = function(){
 		//This funcion is ran when the cursor was pressed and then
 		//released inside the clickable. If it was pressed inside and
 		//then released outside this won't work.
 	}
-	
+
 	this.locate = function(x, y){
 		this.x = x;
 		this.y = y;
 	}
-	
+
 	this.resize = function(w, h){
 		this.width = w;
 		this.height = h;
 	}
-	
-	this.draw = function(){
-		fill(this.color);
-		stroke(this.stroke);
-		strokeWeight(this.strokeWeight);
-		rect(this.x, this.y, this.width, this.height, this.cornerRadius);
-		fill(this.textColor);
-		noStroke();
-		textAlign(CENTER, CENTER);
-		textSize(this.textSize);
-		textFont(this.textFont);
-		text(this.text, this.x+1, this.y+1, this.width, this.height);
-		if(mouseX >= this.x && mouseY >= this.y 
+
+	this.draw = function()
+	{
+		if (this.img != null)
+		{
+			image(this.img, this.x, this.y);
+		} else
+		{
+			fill(this.color);
+			stroke(this.stroke);
+			strokeWeight(this.strokeWeight);
+			rect(this.x, this.y, this.width, this.height, this.cornerRadius);
+			fill(this.textColor);
+			noStroke();
+			textAlign(CENTER, CENTER);
+			textSize(this.textSize);
+			textFont(this.textFont);
+			text(this.text, this.x+1, this.y+1, this.width, this.height);
+		}
+
+		if(mouseX >= this.x && mouseY >= this.y
 		   && mouseX < this.x+this.width && mouseY < this.y+this.height){
 			cl_lastHovered = this;
 			if(mouseIsPressed && !cl_mouseWasPressed)
 				cl_lastClicked = this;
 		}
 	}
-	
+
 	cl_clickables.push(this);
 }
