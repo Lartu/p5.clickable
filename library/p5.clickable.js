@@ -92,7 +92,7 @@ function Clickable(x,y,img)
 	{
 		if (this.img != null)
 		{
-			image(this.img, this.x, this.y);
+			image(this.img, this.x, this.y, this.width, this.height);
 		} else
 		{
 			fill(this.color);
