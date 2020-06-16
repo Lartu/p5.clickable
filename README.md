@@ -94,6 +94,7 @@ myButton.text = "Press Me";       //Text of the clickable (string)
 myButton.textColor = "#000000";   //Color of the text (hex number as a string)
 myButton.textSize = 12;           //Size of the text (integer)
 myButton.textFont = "sans-serif"; //Font of the text (string)
+myButton.textScaled = false;       //Whether to scale the text with the clickable (boolean)
 ```
 
 ### Displaying a Clickable
