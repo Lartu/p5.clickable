@@ -92,11 +92,11 @@ function Clickable() {
 	}
 
 	this.onPress = function () {
-		//This fucking is ran when the clickable is pressed.
+		//This function is ran when the clickable is pressed.
 	}
 
 	this.onRelease = function () {
-		//This funcion is ran when the cursor was pressed and then
+		//This function is ran when the cursor was pressed and then
 		//released inside the clickable. If it was pressed inside and
 		//then released outside this won't work.
 	}
