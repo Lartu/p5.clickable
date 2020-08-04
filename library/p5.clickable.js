@@ -10,7 +10,7 @@ var cl_clickables = [];
 //This function is what makes the magic happen and should be ran after
 //each draw cycle.
 p5.prototype.runGUI = function () {
-	for (i = 0; i < cl_clickables.length; ++i) {
+	for (var i = 0; i < cl_clickables.length; ++i) {
 		if (cl_lastHovered != cl_clickables[i])
 			cl_clickables[i].onOutside();
 	}
