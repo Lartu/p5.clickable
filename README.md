@@ -5,10 +5,11 @@
   <img src="https://img.shields.io/badge/current_version-1.2-green.svg">
 </p>
 
-
 Welcome! This is **p5.clickable**, a [p5.js](http://p5js.org) library that lets you create and customize **buttons** and assign event-based behaviours to them. With **p5.clickable** you can create buttons and define what happens when the user *hovers over*, *clicks*, *releases* or *moves* the cursor *outside* of them.
 
 Can't wait? Check [this **live example**](https://lartu.github.io/projects/p5.clickable/example.html) to see some of the things this library can do. Its source code is available in the [example](example) folder of this repository.
+
+>:warning: **Attention Contributors!** It seems that in one poorly checked pull request some of the newly contributes features were deleted. Sorry! I will add them again in the next release alongside all new features.
 
 ## :telescope: Code Example
 With **p5.clickable** you can get a button up and running with just a few lines of code. For example, to create a plain white button at (20, 20) that when pressed changes color and shows an alert message you do:
@@ -152,6 +153,6 @@ myButton.onRelease = function(){
 If there's a missing feature you'd like to see on p5.clickable, feel free to write it and submit a pull request. Something broke? Please try to fix it! Also feel free to submit issues, bug reports and requests for future features.
 
 ## :scroll: Licensing  
-The `p5.clickable` library is licensed under the MIT License. You can find a copy of the MIT License on this repository.
+The **p5.clickable** library is licensed under the MIT License. You can find a copy of the MIT License on this repository.
 
 This repository also includes code from the [p5.js](https://github.com/processing/p5.js) library, that is licensed under the LGPL 2.1 license.
