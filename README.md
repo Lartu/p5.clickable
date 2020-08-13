@@ -31,7 +31,7 @@ To include the **p5.clickable** library into your p5.js project, copy the [p5.cl
 your project directory and then add the line
 
 ```html
-<script src="p5.clickable.js"></script>
+<script src="path/to/p5.clickable.js"></script>
 ```
 
 to the HTML file that includes your p5.js script.
