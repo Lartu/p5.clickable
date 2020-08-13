@@ -45,7 +45,11 @@ to the HTML file that includes your p5.js script **after** the line that imports
 myButton = new Clickable();
 ```
 
-:warning: Sorry, this isn't working at the moment. It will be re-added in the next release. ~~The starting position of a Clickable defaults to (0, 0) and its size to (100, 50). You can also create it at a different location:~~
+The starting position of a Clickable defaults to (0, 0) and its size to (100, 50). 
+
+~~You can also create it at a different location:~~
+
+>:warning: Sorry, this isn't working at the moment. It will be re-added in the next release.
 
 ```javascript
 myButton = new Clickable(200,300);
