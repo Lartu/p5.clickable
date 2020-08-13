@@ -1,8 +1,8 @@
 <p align="center">
   <img src="https://github.com/Lartu/p5.clickable/blob/master/images/logo.png">
-  <br><br>
-  <img src="https://img.shields.io/badge/license-MIT-red?style=flat-square">
-  <img src="https://img.shields.io/badge/current_version-1.2-green.svg?style=flat-square">
+  <br>
+  <img src="https://img.shields.io/badge/license-MIT-red">
+  <img src="https://img.shields.io/badge/current_version-1.2-green.svg">
 </p>
 
 
