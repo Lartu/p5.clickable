@@ -34,7 +34,7 @@ your project directory and then add the line
 <script src="path/to/p5.clickable.js"></script>
 ```
 
-to the HTML file that includes your p5.js script **after** the line that imports the p5 library, but **before** all of your personal code or the line that imports your personal code.
+to the HTML file that includes your p5.js script **after** the line that imports the p5 library, but **before** all of your personal code or the line that imports your personal code. Check the [example project HTML file](p5.clickable/example/example.html) for more information.
 
 ### Creating a Clickable
 
