@@ -10,6 +10,7 @@ var cl_clickables = [];
 //This function is what makes the magic happen and should be ran after
 //each draw cycle.
 p5.prototype.runGUI = function () {
+	let _hovering = false;
 	for (var i = 0; i < cl_clickables.length; ++i) {
 		if (cl_lastHovered != cl_clickables[i])
 			cl_clickables[i].onOutside();
@@ -17,6 +18,7 @@ p5.prototype.runGUI = function () {
 	if (cl_lastHovered != null) {
 		if (cl_lastClicked != cl_lastHovered) {
 			cl_lastHovered.onHover();
+			_hovering = true;
 		}
 	}
 	if (!cl_mouseWasPressed && cl_lastClicked != null) {
@@ -28,6 +30,8 @@ p5.prototype.runGUI = function () {
 		}
 		cl_lastClicked = null;
 	}
+	if(_hovering) select('#defaultCanvas0').style('cursor', 'pointer');
+	else select('#defaultCanvas0').style('cursor', 'default');
 	cl_lastHovered = null;
 	cl_mouseWasPressed = mouseIsPressed;
 }
