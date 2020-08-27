@@ -10,7 +10,7 @@ var cl_clickables = [];
 //This function is what makes the magic happen and should be ran after
 //each draw cycle.
 p5.prototype.runGUI = function () {
-	for (var i = 0; i < cl_clickables.length; ++i) {
+	for (i = 0; i < cl_clickables.length; ++i) {
 		if (cl_lastHovered != cl_clickables[i])
 			cl_clickables[i].onOutside();
 	}
@@ -69,11 +69,19 @@ function Clickable() {
 	this.textSize = 12;		//Size for the text shown
 	this.textFont = "sans-serif";	//Font for the text shown
 	this.textScaled = false;     //Scale the text with the size of the clickable
+	
+	// image options
+	this.image = null; // image object from p5loadimage()
+	this.tint = null; // tint image using color
+	this.noTint = true; // default to disable tinting
+	this.filter = null; // filter effect
 
 	this.updateTextSize = function () {
 		if (this.textScaled) {
 			for (let i = this.height; i > 0; i--) {
 				if (getTextBounds(this.text, this.textFont, i)[0] <= this.width && getTextBounds(this.text, this.textFont, i)[1] <= this.height) {
+					console.log("textbounds: " + getTextBounds(this.text, this.font, i));
+					console.log("boxsize: " + this.width + ", " + this.height);
 					this.textSize = i / 2;
 					break;
 				}
@@ -92,11 +100,11 @@ function Clickable() {
 	}
 
 	this.onPress = function () {
-		//This function is ran when the clickable is pressed.
+		//This fucking is ran when the clickable is pressed.
 	}
 
 	this.onRelease = function () {
-		//This function is ran when the cursor was pressed and then
+		//This funcion is ran when the cursor was pressed and then
 		//released inside the clickable. If it was pressed inside and
 		//then released outside this won't work.
 	}
@@ -112,14 +120,28 @@ function Clickable() {
 		this.updateTextSize();
 	}
 
-	this.draw = function () {
+	this.drawImage = function(){
+		image(this.image, this.x, this.y, this.width, this.height);
+		if(this.tint && !this.noTint){
+			tint(this.tint)
+		} else {
+			noTint();
+		}
+		if(this.filter){
+			filter(this.filter);
+		}
+	}
 
+	this.draw = function () {
 		fill(this.color);
 		stroke(this.stroke);
 		strokeWeight(this.strokeWeight);
 		rect(this.x, this.y, this.width, this.height, this.cornerRadius);
 		fill(this.textColor);
 		noStroke();
+		if(this.image){
+			this.drawImage();
+		}
 		textAlign(CENTER, CENTER);
 		textSize(this.textSize);
 		textFont(this.textFont);

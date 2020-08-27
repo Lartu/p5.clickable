@@ -69,6 +69,12 @@ function Clickable() {
 	this.textSize = 12;		//Size for the text shown
 	this.textFont = "sans-serif";	//Font for the text shown
 	this.textScaled = false;     //Scale the text with the size of the clickable
+	
+	// image options
+	this.image = null; // image object from p5loadimage()
+	this.tint = null; // tint image using color
+	this.noTint = true; // default to disable tinting
+	this.filter = null; // filter effect
 
 	this.updateTextSize = function () {
 		if (this.textScaled) {
@@ -114,14 +120,28 @@ function Clickable() {
 		this.updateTextSize();
 	}
 
-	this.draw = function () {
+	this.drawImage = function(){
+		image(this.image, this.x, this.y, this.width, this.height);
+		if(this.tint && !this.noTint){
+			tint(this.tint)
+		} else {
+			noTint();
+		}
+		if(this.filter){
+			filter(this.filter);
+		}
+	}
 
+	this.draw = function () {
 		fill(this.color);
 		stroke(this.stroke);
 		strokeWeight(this.strokeWeight);
 		rect(this.x, this.y, this.width, this.height, this.cornerRadius);
 		fill(this.textColor);
 		noStroke();
+		if(this.image){
+			this.drawImage();
+		}
 		textAlign(CENTER, CENTER);
 		textSize(this.textSize);
 		textFont(this.textFont);
