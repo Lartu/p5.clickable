@@ -113,7 +113,7 @@ function Clickable() {
 	}
 
 	this.draw = function () {
-
+		push();
 		fill(this.color);
 		stroke(this.stroke);
 		strokeWeight(this.strokeWeight);
@@ -130,6 +130,7 @@ function Clickable() {
 			if (mouseIsPressed && !cl_mouseWasPressed)
 				cl_lastClicked = this;
 		}
+		pop();
 	}
 
 	cl_clickables.push(this);
