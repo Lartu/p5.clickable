@@ -1,7 +1,12 @@
 var canvas;
 var click1;
 var click2;
+var click3;
+var clickImg;
 
+function preload(){
+  clickImg = loadImage('./logo.png');
+}
 function setup() {
   createCanvas(400, 400);
 
@@ -46,10 +51,26 @@ function setup() {
   click2.onPress = function () {
     alert("Hi there!");
   }
+
+  click3 = new Clickable();
+  click3.image = clickImg;
+  click3.locate(250,250);
+  click3.resize(100,100);
+  click3.text = "";
+  click3.onHover = function () {
+    this.color = "#AA33AA";
+    this.noTint = false;
+    this.tint = "#FF0000";
+  }
+  click3.onOutside = function () {
+    this.color = "#FFFFFF";
+    this.noTint = true;
+  }
 }
 
 function draw() {
   background(255);
   click1.draw();
   click2.draw();
+  click3.draw();
 }
