@@ -55,6 +55,21 @@ The starting position of a Clickable defaults to (0, 0) and its size to (100, 50
 myButton = new Clickable(200,300);
 ```
 
+### Displaying a Clickable
+
+To **display** a Clickable, you have to call its `draw` method inside the `draw` function of your p5.js script.
+
+```javascript
+function draw(){ // This is the p5.js draw function.
+  //...
+  myButton.draw(); // <- Draw the 'myButton' Clickable
+  //...
+}
+```
+
+This is very important! If you don't call this method your button will not be shown and it also **won't respond
+to any events**!
+
 ### Moving a Clickable
 
 To move a Clickable you can change its `x` and `y` properties. You can also use this properties to read the current
@@ -102,21 +117,6 @@ myButton.textFont = "sans-serif"; //Font of the text (string)
 myButton.textScaled = false;       //Whether to scale the text with the clickable (boolean)
 ```
 
-### Displaying a Clickable
-
-To **display** a Clickable, you have to call its `draw` method inside the `draw` function of your p5.js script.
-
-```javascript
-function draw(){ // This is the p5.js draw function.
-  //...
-  myButton.draw(); // <- Draw the 'myButton' Clickable
-  //...
-}
-```
-
-This is very important! If you don't call this method your button will not be shown and it also **won't respond
-to any events**!
-
 ### Clickable Events
 
 The Clickable class provide four methods that are called when the user interacts with a Clickable: `onOutside`, `onHover`, `onPress` and `onRelease`.
@@ -152,6 +152,22 @@ myButton.onRelease = function(){
   console.log("I have been released!");
 }
 ```
+
+### Images in a Clickable
+
+You can add an image to a clickable like this:
+
+```javascript
+myButton.image = myImage; // myImage is an image loaded from p5's loadImage()
+```
+
+By default the image will stretch to fill the button, but you can disable the stretching with the `stretchImage` property.
+
+```javascript
+myButton.stretchImage = false;
+```
+
+Now, the image will be centered and bounded inside the button, but will retain its original aspect ratio.
 
 ## :beers: Contributing
 If there's a missing feature you'd like to see on p5.clickable, feel free to write it and submit a pull request. Something broke? Please try to fix it! Also feel free to submit issues, bug reports and requests for future features.
