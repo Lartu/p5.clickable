@@ -73,7 +73,7 @@ function Clickable() {
 	// image options
 	this.image = null; // image object from p5loadimage()
 	this.fitImage = false; // when true, image will stretch to fill button
-	this.imageScale = 1;
+	this.imageScale = 1.0;
 	this.tint = null; // tint image using color
 	this.noTint = true; // default to disable tinting
 	this.filter = null; // filter effect
