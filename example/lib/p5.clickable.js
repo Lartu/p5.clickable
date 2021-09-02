@@ -72,7 +72,8 @@ function Clickable() {
 	
 	// image options
 	this.image = null; // image object from p5loadimage()
-	this.stretchImage = true; // when true, image will stretch to fill button
+	this.fitImage = false; // when true, image will stretch to fill button
+	this.imageScale = 1;
 	this.tint = null; // tint image using color
 	this.noTint = true; // default to disable tinting
 	this.filter = null; // filter effect
@@ -123,33 +124,27 @@ function Clickable() {
 	}
 
 	this.drawImage = function(){
-		if(this.stretchImage){
-			image(this.image, this.x, this.y, this.width, this.height);
-		}
-		else{
-			push();
-			let fitWidth;
-			let fitHeight;
+		push();
+		imageMode(CENTER);
+		let centerX = this.x + this.width / 2;
+		let centerY = this.y + this.height / 2;
+		let imgWidth = this.width;
+		let imgHeight = this.height;
+		if(this.fitImage){
 			let imageAspect = this.image.width / this.image.height;
 			let buttonAspect = this.width / this.height;
-			if(buttonAspect > imageAspect){ // button is wider than image
-				fitHeight = this.height;
-				fitWidth = this.width * (imageAspect / buttonAspect);
+			if(imageAspect > buttonAspect){ // image is wider than button
+				imgWidth = this.width;
+				imgHeight = this.height * (buttonAspect / imageAspect);
 			}
 			else{
-				fitWidth = this.width;
-				fitHeight = this.height * (buttonAspect / imageAspect);
+				imgWidth = this.width * (imageAspect / buttonAspect);
+				imgHeight = this.height;
 			}
-			imageMode(CENTER);
-			image(
-				this.image,
-				this.x + this.width / 2,
-				this.y + this.height / 2,
-				fitWidth,
-				fitHeight
-			);
-			pop();
 		}
+		
+		image(this.image, centerX, centerY, imgWidth * this.imageScale, imgHeight * this.imageScale);
+
 		if(this.tint && !this.noTint){
 			tint(this.tint)
 		} else {
@@ -158,6 +153,7 @@ function Clickable() {
 		if(this.filter){
 			filter(this.filter);
 		}
+		pop();
 	}
 
 	this.draw = function () {

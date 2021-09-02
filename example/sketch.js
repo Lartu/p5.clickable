@@ -70,17 +70,31 @@ function setup() {
   // image will stretch to fill button by default
   click4 = new Clickable();
   click4.image = clickImg;
+  click4.imageScale = 1;
   click4.text = "";
   click4.locate(10, 200);
-  click4.resize(120, 100);
+  click4.resize(120, 90);
+  click4.onHover = function () {
+    click4.imageScale = 1.1;
+  }
+  click4.onOutside = function () {
+    click4.imageScale = 1;
+  }
 
-  // centering an image without stretching it
+  // centered and fitted
   click5 = new Clickable();
   click5.image = clickImg;
-  click5.stretchImage = false; // no stretching!
+  click5.fitImage = true; // no stretching!
+  click5.imageScale = 1;
   click5.text = "";
   click5.locate(140, 200);
-  click5.resize(120, 100);
+  click5.resize(120, 90);
+  click5.onHover = function () {
+    click5.imageScale = 1.1;
+  }
+  click5.onOutside = function () {
+    click5.imageScale = 1;
+  }
 }
 
 function draw() {

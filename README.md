@@ -161,13 +161,17 @@ You can add an image to a clickable like this:
 myButton.image = myImage; // myImage is an image loaded from p5's loadImage()
 ```
 
-By default the image will stretch to fill the button, but you can disable the stretching with the `stretchImage` property.
+By default the image will stretch to fill the button, but you can disable the stretching with the `fitImage` property.
 
 ```javascript
-myButton.stretchImage = false;
+myButton.fitImage = true; // fits the image inside the button with the image's original aspect ratio
 ```
 
-Now, the image will be centered and bounded inside the button, but will retain its original aspect ratio.
+You can also scale the image with the `imageScale` property.
+
+```javascript
+myButton.imageScale = 1.2; // useful if your image has some extra transparent padding
+```
 
 ## :beers: Contributing
 If there's a missing feature you'd like to see on p5.clickable, feel free to write it and submit a pull request. Something broke? Please try to fix it! Also feel free to submit issues, bug reports and requests for future features.
