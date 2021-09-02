@@ -72,6 +72,7 @@ function Clickable() {
 	
 	// image options
 	this.image = null; // image object from p5loadimage()
+	this.imageMode = null; // image mode passed into p5's imageMode() function
 	this.tint = null; // tint image using color
 	this.noTint = true; // default to disable tinting
 	this.filter = null; // filter effect
@@ -79,7 +80,8 @@ function Clickable() {
 	this.updateTextSize = function () {
 		if (this.textScaled) {
 			for (let i = this.height; i > 0; i--) {
-				if (getTextBounds(this.text, this.textFont, i)[0] <= this.width && getTextBounds(this.text, this.textFont, i)[1] <= this.height) {
+				if (getTextBounds(this.text, this.textFont, i)[0] <= this.width
+					&& getTextBounds(this.text, this.textFont, i)[1] <= this.height) {
 					console.log("textbounds: " + getTextBounds(this.text, this.font, i));
 					console.log("boxsize: " + this.width + ", " + this.height);
 					this.textSize = i / 2;
@@ -100,13 +102,13 @@ function Clickable() {
 	}
 
 	this.onPress = function () {
-		//This fucking is ran when the clickable is pressed.
+		//This function is ran when the clickable is pressed.
 	}
 
 	this.onRelease = function () {
-		//This funcion is ran when the cursor was pressed and then
+		//This function is ran when the cursor was pressed and then
 		//released inside the clickable. If it was pressed inside and
-		//then released outside this won't work.
+		//then released outside this won't run.
 	}
 
 	this.locate = function (x, y) {
@@ -121,6 +123,7 @@ function Clickable() {
 	}
 
 	this.drawImage = function(){
+		imageMode(this.imageMode);
 		image(this.image, this.x, this.y, this.width, this.height);
 		if(this.tint && !this.noTint){
 			tint(this.tint)
@@ -133,6 +136,7 @@ function Clickable() {
 	}
 
 	this.draw = function () {
+		push();
 		fill(this.color);
 		stroke(this.stroke);
 		strokeWeight(this.strokeWeight);
@@ -152,6 +156,7 @@ function Clickable() {
 			if (mouseIsPressed && !cl_mouseWasPressed)
 				cl_lastClicked = this;
 		}
+		pop();
 	}
 
 	cl_clickables.push(this);
