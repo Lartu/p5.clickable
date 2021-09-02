@@ -72,6 +72,7 @@ function Clickable() {
 	
 	// image options
 	this.image = null; // image object from p5loadimage()
+	this.stretchImage = true; // when true, image will stretch to fill button
 	this.tint = null; // tint image using color
 	this.noTint = true; // default to disable tinting
 	this.filter = null; // filter effect
@@ -79,7 +80,8 @@ function Clickable() {
 	this.updateTextSize = function () {
 		if (this.textScaled) {
 			for (let i = this.height; i > 0; i--) {
-				if (getTextBounds(this.text, this.textFont, i)[0] <= this.width && getTextBounds(this.text, this.textFont, i)[1] <= this.height) {
+				if (getTextBounds(this.text, this.textFont, i)[0] <= this.width
+					&& getTextBounds(this.text, this.textFont, i)[1] <= this.height) {
 					console.log("textbounds: " + getTextBounds(this.text, this.font, i));
 					console.log("boxsize: " + this.width + ", " + this.height);
 					this.textSize = i / 2;
@@ -100,13 +102,13 @@ function Clickable() {
 	}
 
 	this.onPress = function () {
-		//This fucking is ran when the clickable is pressed.
+		//This function is ran when the clickable is pressed.
 	}
 
 	this.onRelease = function () {
-		//This funcion is ran when the cursor was pressed and then
+		//This function is ran when the cursor was pressed and then
 		//released inside the clickable. If it was pressed inside and
-		//then released outside this won't work.
+		//then released outside this won't run.
 	}
 
 	this.locate = function (x, y) {
@@ -121,7 +123,33 @@ function Clickable() {
 	}
 
 	this.drawImage = function(){
-		image(this.image, this.x, this.y, this.width, this.height);
+		if(this.stretchImage){
+			image(this.image, this.x, this.y, this.width, this.height);
+		}
+		else{
+			push();
+			let fitWidth;
+			let fitHeight;
+			let imageAspect = this.image.width / this.image.height;
+			let buttonAspect = this.width / this.height;
+			if(buttonAspect > imageAspect){ // button is wider than image
+				fitHeight = this.height;
+				fitWidth = this.width * (imageAspect / buttonAspect);
+			}
+			else{
+				fitWidth = this.width;
+				fitHeight = this.height * (buttonAspect / imageAspect);
+			}
+			imageMode(CENTER);
+			image(
+				this.image,
+				this.x + this.width / 2,
+				this.y + this.height / 2,
+				fitWidth,
+				fitHeight
+			);
+			pop();
+		}
 		if(this.tint && !this.noTint){
 			tint(this.tint)
 		} else {
