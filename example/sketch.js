@@ -38,9 +38,9 @@ function setup() {
 
   click2 = new Clickable();
   click2.cornerRadius = 0;
-  click2.locate(60, 60);
   click2.textScaled = true;
   click2.text = "hello";
+  click2.locate(60, 60);
   click2.resize(250, 100);
   click2.onOutside = function () {
     this.color = "#FFFFFF";
@@ -54,7 +54,7 @@ function setup() {
 
   click3 = new Clickable();
   click3.image = clickImg;
-  click3.locate(250,250);
+  click3.locate(280,250);
   click3.resize(100,100);
   click3.text = "";
   click3.onHover = function () {
@@ -66,6 +66,35 @@ function setup() {
     this.color = "#FFFFFF";
     this.noTint = true;
   }
+
+  // image will stretch to fill button by default
+  click4 = new Clickable();
+  click4.image = clickImg;
+  click4.imageScale = 1;
+  click4.text = "";
+  click4.locate(10, 200);
+  click4.resize(120, 90);
+  click4.onHover = function () {
+    click4.imageScale = 1.1;
+  }
+  click4.onOutside = function () {
+    click4.imageScale = 1;
+  }
+
+  // centered and fitted
+  click5 = new Clickable();
+  click5.image = clickImg;
+  click5.fitImage = true; // no stretching!
+  click5.imageScale = 1;
+  click5.text = "";
+  click5.locate(140, 200);
+  click5.resize(120, 90);
+  click5.onHover = function () {
+    click5.imageScale = 1.1;
+  }
+  click5.onOutside = function () {
+    click5.imageScale = 1;
+  }
 }
 
 function draw() {
@@ -73,4 +102,6 @@ function draw() {
   click1.draw();
   click2.draw();
   click3.draw();
+  click4.draw();
+  click5.draw();
 }
