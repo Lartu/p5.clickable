@@ -55,9 +55,9 @@ function getTextBounds(m, font, size) {
 }
 
 //Button Class
-function Clickable() {
-	this.x = 0;			//X position of the clickable
-	this.y = 0;			//Y position of the clickable
+function Clickable(x,y) {
+	this.x = x;			//X position of the clickable
+	this.y = y;			//Y position of the clickable
 	this.width = 100;		//Width of the clickable
 	this.height = 50;		//Height of the clickable
 	this.color = "#FFFFFF";		//Background color of the clickable
