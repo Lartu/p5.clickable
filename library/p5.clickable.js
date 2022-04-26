@@ -74,7 +74,7 @@ function Clickable(x,y) {
 
 	// image options
 	this.image = null; // image object from p5loadimage()
-	this.fitImage = false; // when true, image will stretch to fill button
+	this.fitImage = false; // when true, fits the image inside the button with the image's original aspect ratio
 	this.imageScale = 1.0;
 	this.tint = null; // tint image using color
 	this.noTint = true; // default to disable tinting
