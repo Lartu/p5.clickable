@@ -69,6 +69,8 @@ function Clickable(x,y) {
 	this.textSize = 12;		//Size for the text shown
 	this.textFont = "sans-serif";	//Font for the text shown
 	this.textScaled = false;     //Scale the text with the size of the clickable
+    this.textAlign = CENTER;
+    this.textPadding = 10;
 	
 	// image options
 	this.image = null; // image object from p5loadimage()
@@ -167,10 +169,21 @@ function Clickable(x,y) {
 		if(this.image){
 			this.drawImage();
 		}
-		textAlign(CENTER, CENTER);
+		textAlign(this.textAlign, CENTER);
 		textSize(this.textSize);
 		textFont(this.textFont);
-		text(this.text, this.x + this.width / 2, this.y + this.height / 2);
+      
+        switch (this.textAlign) {
+          case LEFT:
+            text(this.text, this.x + this.textPadding, this.y + this.height / 2);
+            break;
+          case RIGHT:
+            text(this.text, this.x + this.width - this.textPadding, this.y + this.height / 2);
+            break;
+          default:
+            text(this.text, this.x + this.width / 2, this.y + this.height / 2);
+        }
+      
 		if (mouseX >= this.x && mouseY >= this.y
 			&& mouseX < this.x + this.width && mouseY < this.y + this.height) {
 			cl_lastHovered = this;
