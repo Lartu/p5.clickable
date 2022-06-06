@@ -114,7 +114,9 @@ myButton.text = "Press Me";       //Text of the clickable (string)
 myButton.textColor = "#000000";   //Color of the text (hex number as a string)
 myButton.textSize = 12;           //Size of the text (integer)
 myButton.textFont = "sans-serif"; //Font of the text (string)
-myButton.textScaled = false;       //Whether to scale the text with the clickable (boolean)
+myButton.textScaled = false;      //Whether to scale the text with the clickable (boolean)
+myButton.textAlign = CENTER;      //The Horizontal alignment of the text (LEFT, RIGHT, CENTER)
+myButton.textPadding = 10;        //The space between the border and left or right aligned text in px (integer)
 ```
 
 ### Clickable Events
