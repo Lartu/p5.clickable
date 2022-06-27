@@ -12,11 +12,12 @@ var cl_clickables = [];
 p5.prototype.runGUI = function () {
 	for (i = 0; i < cl_clickables.length; ++i) {
 		if (cl_lastHovered != cl_clickables[i]){
-			cursor("initial"); // Reset the cursor as it is no longer hovering the clickable.
 			cl_clickables[i].onOutside();
 		}
 	}
-	if (cl_lastHovered != null) {
+	if(cl_lastHovered == null){
+		cursor("initial"); // Reset the cursor as it is no longer hovering the clickable.
+	}else {
 		if (cl_lastClicked != cl_lastHovered) {
 			cursor(cl_lastHovered.hoverCursorStyle);
 			cl_lastHovered.onHover();
