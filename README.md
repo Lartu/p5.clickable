@@ -106,15 +106,16 @@ myButton.resize(250, 100);
 Clickables contain properties that can be changed to alter their appearance:
 
 ```javascript
-myButton.color = "#FFFFFF";       //Background color of the clickable (hex number as a string)
-myButton.cornerRadius = 10;       //Corner radius of the clickable (float)
-myButton.strokeWeight = 2;        //Stroke width of the clickable (float)
-myButton.stroke = "#000000";      //Border color of the clickable (hex number as a string)
-myButton.text = "Press Me";       //Text of the clickable (string)
-myButton.textColor = "#000000";   //Color of the text (hex number as a string)
-myButton.textSize = 12;           //Size of the text (integer)
-myButton.textFont = "sans-serif"; //Font of the text (string)
-myButton.textScaled = false;       //Whether to scale the text with the clickable (boolean)
+myButton.color = "#FFFFFF";             //Background color of the clickable (hex number as a string)
+myButton.cornerRadius = 10;             //Corner radius of the clickable (float)
+myButton.strokeWeight = 2;              //Stroke width of the clickable (float)
+myButton.stroke = "#000000";            //Border color of the clickable (hex number as a string)
+myButton.text = "Press Me";             //Text of the clickable (string)
+myButton.textColor = "#000000";         //Color of the text (hex number as a string)
+myButton.textSize = 12;                 //Size of the text (integer)
+myButton.textFont = "sans-serif";       //Font of the text (string)
+myButton.textScaled = false;            //Whether to scale the text with the clickable (boolean)
+myButton.hoverCursorStyle = "pointer";	//The cursor style when clickable is hovered
 ```
 
 ### Clickable Events
