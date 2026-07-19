@@ -14,18 +14,15 @@ Can't wait? Check out [this **live example**](https://lartu.github.io/p5.clickab
 Integrating *p5.clickable* buttons into your project is super easy:
 
 ```javascript
-function setup()
-{
+function start() {
     // ...
-    myButton = new Clickable();
+    myButton = createClickable();
     // ...
 }
 
-function draw()
-{
+function draw() {
     // ...
-    if (myButton.isPressed())
-    {
+    if (myButton.isPressed()) {
         // Do something
     }
     // ...
@@ -80,21 +77,20 @@ myButton.width = 250;
 myButton.height = 100;
 ```
 
-You can also use the `resize` method to change the size of a *Clickable*:
+You can also use the `resize` function to change the size of a *Clickable*:
 
 ```javascript
 myButton.resize(250, 100);
 ```
 
-### Clickable Events
+### Interaction Methods
 
-The *Clickable* class provides six methods that can be used to check whether the user has interacted with the button: `onPress`, `onRelease`, `isPressed`, `isHovered`, `onHoverStart` and `onHoverEnd`.
+The *Clickable* class provides six methods that can be used to check whether the user has interacted with the button: `onPress`, `isPressed`, `onRelease`, `onHoverStart`, `isHovered`, and `onHoverEnd`.
 
 `onPress` returns `true` during the frame in which the user starts pressing the button with the left mouse button:
 
 ```javascript
-if (myButton.onPress())
-{
+if (myButton.onPress()) {
     // Do something!
 }
 ```
@@ -102,8 +98,7 @@ if (myButton.onPress())
 `isPressed` returns `true` while the left mouse button is being held within the button bounds, as long as the click was initiated within those bounds:
 
 ```javascript
-if (myButton.isPressed())
-{
+if (myButton.isPressed()) {
     // Do something!
 }
 ```
@@ -111,8 +106,7 @@ if (myButton.isPressed())
 `onRelease` returns `true` during the frame in which the left mouse button is released over the button, as long as the press was also initiated within the button bounds:
 
 ```javascript
-if (myButton.onRelease())
-{
+if (myButton.onRelease()) {
     // Do something!
 }
 ```
@@ -120,8 +114,7 @@ if (myButton.onRelease())
 `onHoverStart` returns `true` during the frame in which the cursor enters the button bounds:
 
 ```javascript
-if (myButton.onHoverStart())
-{
+if (myButton.onHoverStart()) {
     // Do something!
 }
 ```
@@ -129,8 +122,7 @@ if (myButton.onHoverStart())
 `isHovered` returns `true` while the cursor is inside the button bounds:
 
 ```javascript
-if (myButton.isHovered())
-{
+if (myButton.isHovered()) {
     // Do something!
 }
 ```
@@ -138,10 +130,19 @@ if (myButton.isHovered())
 `onHoverEnd` returns `true` during the frame in which the cursor leaves the button bounds:
 
 ```javascript
-if (myButton.onHoverEnd())
-{
+if (myButton.onHoverEnd()) {
     // Do something!
 }
+```
+
+### Clickable Z-Order
+
+*Clickables* can overlap each other, so if you hover your mouse over a *Clickable* that is on top of another *Clickable*, only the topmost *Clickable* will be triggered! The order in which *Clickables* are processed is called *z-order*. *Clickables* with a greater *z-order* are placed **above** *Clickables* with a lower *z-order*, meaning they take priority when their areas overlap.
+
+To set the *z-order* of a clickable, use the `setZ` method:
+
+```javascript
+myButton.setZ(10);
 ```
 
 ## :beers: Contributing
