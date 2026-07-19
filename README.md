@@ -2,85 +2,70 @@
   <img src="https://github.com/Lartu/p5.clickable/blob/master/images/logo.png">
   <br>
   <img src="https://img.shields.io/badge/license-MIT-red">
-  <img src="https://img.shields.io/badge/current_version-1.2-green.svg">
+  <img src="https://img.shields.io/badge/current_version-2.0-green.svg">
 </p>
 
-Welcome! This is **p5.clickable**, a [p5.js](http://p5js.org) library that lets you create and customize **buttons** and assign event-based behaviours to them. With **p5.clickable** you can create buttons and define what happens when the user *hovers over*, *clicks*, *releases* or *moves* the cursor *outside* of them.
+Welcome! This is **p5.clickable**, a [p5.js](http://p5js.org) library that lets you create immediate-mode **buttons**. With *p5.clickable*, you can create buttons and define what happens when the user *presses*, *holds*, or *releases* them, as well as when the cursor *enters*, *hovers over*, or *leaves* them.
 
-Can't wait? Check [this **live example**](https://lartu.github.io/p5.clickable/example/example.html) to see some of the things this library can do. Its source code is available in the [example](example) folder of this repository.
-
->:warning: **Attention Contributors!** It seems that in one poorly checked pull request some of the newly contributes features were deleted. Sorry! I will add them again in the next release alongside all new features.
+Can't wait? Check out [this **live example**](https://lartu.github.io/p5.clickable/example/example.html) to see some of the things this library can do. Its source code is available in the [example](example) folder of this repository.
 
 ## :telescope: Code Example
-With **p5.clickable** you can get a button up and running with just a few lines of code. For example, to create a plain white button at (20, 20) that when pressed changes color and shows an alert message you do:
+
+Integrating *p5.clickable* buttons into your project is super easy:
 
 ```javascript
-myButton = new Clickable();     //Create button
-myButton.locate(20, 20);        //Position Button
-myButton.onPress = function(){  //When myButton is pressed
-  this.color = "#AAAAFF";       //Change button color
-  alert("Yay!");                //Show an alert message
+function setup()
+{
+    // ...
+    myButton = new Clickable();
+    // ...
+}
+
+function draw()
+{
+    // ...
+    if (myButton.isPressed())
+    {
+        // Do something
+    }
+    // ...
 }
 ```
-Easy as pie!
+
+That's it!
 
 ## :microscope: Documentation
 
 ### Including the p5.clickable Library
 
-To include the **p5.clickable** library into your p5.js project, copy the [p5.clickable.js](library/p5.clickable.js) file into
-your project directory and then add the line
+To include the *p5.clickable* library in your p5.js project, copy the [p5.clickable.js](library/p5.clickable.js) file into your project directory and then add the line
 
 ```html
 <script src="path/to/p5.clickable.js"></script>
 ```
 
-to the HTML file that includes your p5.js script **after** the line that imports the p5 library, but **before** all of your personal code or the line that imports your personal code. Check the [example project HTML file](p5.clickable/example/example.html) for more information.
+to the HTML file that includes your p5.js script, **after** the line that imports the p5 library but **before** any of your own code or the line that imports your own code. Check the [example project HTML file](p5.clickable/example/example.html) for more information.
 
 ### Creating a Clickable
 
-**p5.clickable** provides the `Clickable` class (a *Clickable* is just a button). To create a button just instantiate a new Clickable, like this:
+**p5.clickable** provides the `Clickable` class (a *Clickable* is simply an interactable area, and it's invisible!). To create a button, just instantiate a new *Clickable*, like this:
 
 ```javascript
 myButton = new Clickable();
 ```
 
-The starting position of a Clickable defaults to (0, 0) and its size to (100, 50). 
-
-~~You can also create it at a different location:~~
-
->:warning: Sorry, this isn't working at the moment. It will be re-added in the next release.
-
-```javascript
-myButton = new Clickable(200,300);
-```
-
-### Displaying a Clickable
-
-To **display** a Clickable, you have to call its `draw` method inside the `draw` function of your p5.js script.
-
-```javascript
-function draw(){ // This is the p5.js draw function.
-  //...
-  myButton.draw(); // <- Draw the 'myButton' Clickable
-  //...
-}
-```
-
-This is very important! If you don't call this method your button will not be shown and it also **won't respond
-to any events**!
+By default, *Clickables* are located at `(0, 0)` and have a size of `(100, 50)`. **p5.clickable does not define what your buttons look like**; it simply implements interactable areas that detect presses, hovers, and similar interactions. To style your buttons, draw them yourself in the same areas where your *Clickables* are located!
 
 ### Moving a Clickable
 
-To move a Clickable you can change its `x` and `y` properties. You can also use this properties to read the current
-location of a Clickable.
+To move a *Clickable*, you can change its `x` and `y` properties. You can also use these properties to read the current location of a *Clickable*:
 
 ```javascript
 myButton.x = 100;
 myButton.y = 200;
 ```
 
-You can also use the `locate` method to change the location of a Clickable.
+You can also use the `locate` method to change the location of a *Clickable*:
 
 ```javascript
 myButton.locate(100, 200);
@@ -88,95 +73,83 @@ myButton.locate(100, 200);
 
 ### Resizing a Clickable
 
-To resize a Clickable you can modify its `width` and `height` properties. You can also use this properties to read the current size of a Clickable.
+To resize a *Clickable*, you can modify its `width` and `height` properties. You can also use these properties to read the current size of a *Clickable*:
 
 ```javascript
 myButton.width = 250;
 myButton.height = 100;
 ```
 
-You can also use the `resize` method to change the size of a Clickable.
+You can also use the `resize` method to change the size of a *Clickable*:
 
 ```javascript
 myButton.resize(250, 100);
 ```
 
-### Altering the Appearance of a Clickable
-
-Clickables contain properties that can be changed to alter their appearance:
-
-```javascript
-myButton.color = "#FFFFFF";       //Background color of the clickable (hex number as a string)
-myButton.cornerRadius = 10;       //Corner radius of the clickable (float)
-myButton.strokeWeight = 2;        //Stroke width of the clickable (float)
-myButton.stroke = "#000000";      //Border color of the clickable (hex number as a string)
-myButton.text = "Press Me";       //Text of the clickable (string)
-myButton.textColor = "#000000";   //Color of the text (hex number as a string)
-myButton.textSize = 12;           //Size of the text (integer)
-myButton.textFont = "sans-serif"; //Font of the text (string)
-myButton.textScaled = false;       //Whether to scale the text with the clickable (boolean)
-```
-
 ### Clickable Events
 
-The Clickable class provide four methods that are called when the user interacts with a Clickable: `onOutside`, `onHover`, `onPress` and `onRelease`.
+The *Clickable* class provides six methods that can be used to check whether the user has interacted with the button: `onPress`, `onRelease`, `isPressed`, `isHovered`, `onHoverStart` and `onHoverEnd`.
 
-`onOutside` is called whenever the cursor is not hovering over the Clickable.
+`onPress` returns `true` during the frame in which the user starts pressing the button with the left mouse button:
 
 ```javascript
-myButton.onOutside = function(){
-  console.log("Hey! Press me!");
+if (myButton.onPress())
+{
+    // Do something!
 }
 ```
 
-`onHover` is called whenever the cursor is hovering over a Clickable, but it is not being pressed.
+`isPressed` returns `true` while the left mouse button is being held within the button bounds, as long as the click was initiated within those bounds:
 
 ```javascript
-myButton.onHover = function(){
-  console.log("The cursor is over me!");
+if (myButton.isPressed())
+{
+    // Do something!
 }
 ```
 
-`onPress` is called when the user presses the Clickable.
+`onRelease` returns `true` during the frame in which the left mouse button is released over the button, as long as the press was also initiated within the button bounds:
 
 ```javascript
-myButton.onPress = function(){
-  console.log("I have been pressed!");
+if (myButton.onRelease())
+{
+    // Do something!
 }
 ```
 
-`onRelease` is called when the user clicks a Clickable and then releases the click while within the area of the Clickable.
+`onHoverStart` returns `true` during the frame in which the cursor enters the button bounds:
 
 ```javascript
-myButton.onRelease = function(){
-  console.log("I have been released!");
+if (myButton.onHoverStart())
+{
+    // Do something!
 }
 ```
 
-### Images in a Clickable
-
-You can add an image to a clickable like this:
+`isHovered` returns `true` while the cursor is inside the button bounds:
 
 ```javascript
-myButton.image = myImage; // myImage is an image loaded from p5's loadImage()
+if (myButton.isHovered())
+{
+    // Do something!
+}
 ```
 
-By default the image will stretch to fill the button, but you can disable the stretching with the `fitImage` property.
+`onHoverEnd` returns `true` during the frame in which the cursor leaves the button bounds:
 
 ```javascript
-myButton.fitImage = true; // fits the image inside the button with the image's original aspect ratio
-```
-
-You can also scale the image with the `imageScale` property.
-
-```javascript
-myButton.imageScale = 1.2; // useful if your image has some extra transparent padding
+if (myButton.onHoverEnd())
+{
+    // Do something!
+}
 ```
 
 ## :beers: Contributing
-If there's a missing feature you'd like to see on p5.clickable, feel free to write it and submit a pull request. Something broke? Please try to fix it! Also feel free to submit issues, bug reports and requests for future features.
+
+If there's a feature you'd like to see in *p5.clickable*, feel free to implement it and submit a pull request. Found something that's broken? Please try to fix it or let me know! Also, feel free to submit issues, bug reports and feature requests.
 
 ## :scroll: Licensing  
-The **p5.clickable** library is licensed under the MIT License. You can find a copy of the MIT License on this repository.
 
-This repository also includes code from the [p5.js](https://github.com/processing/p5.js) library, that is licensed under the LGPL 2.1 license.
+The *p5.clickable* library is licensed under the MIT License. You can find a copy of the MIT License in this repository.
+
+This repository also includes code from the [p5.js](https://github.com/processing/p5.js) library, which is licensed under the LGPL 2.1 license.
