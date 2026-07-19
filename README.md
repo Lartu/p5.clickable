@@ -45,13 +45,13 @@ to the HTML file that includes your p5.js script, **after** the line that import
 
 ### Creating a Clickable
 
-**p5.clickable** provides the `Clickable` class (a *Clickable* is simply an interactable area, and it's invisible!). To create a button, just instantiate a new *Clickable*, like this:
+**p5.clickable** provides `Clickable` objects that act as buttons (a *Clickable* is simply an interactable area, and it's invisible!). To create a button, just call the `createClickable` function, like this:
 
 ```javascript
-myButton = new Clickable();
+myButton = createClickable();
 ```
 
-By default, *Clickables* are located at `(0, 0)` and have a size of `(100, 50)`. **p5.clickable does not define what your buttons look like**; it simply implements interactable areas that detect presses, hovers, and similar interactions. To style your buttons, draw them yourself in the same areas where your *Clickables* are located!
+By default, *Clickables* are located at `(0, 0)` and have a size of `(100, 100)`. Keep in mind that **p5.clickable does not define what your buttons look like**; it simply implements interactable areas that detect presses, hovers, and similar interactions. These areas are invisible! To style your buttons, draw them yourself in the same spots where your *Clickables* are located!
 
 ### Moving a Clickable
 

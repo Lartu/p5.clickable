@@ -4,7 +4,7 @@ function Clickable() {
 	this.x = 0;
 	this.y = 0;
 	this.width = 100;
-	this.height = 50;
+	this.height = 100;
 	this.__zorder = 0;
 
 	this.locate = function (x, y) {
