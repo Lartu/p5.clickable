@@ -15,17 +15,15 @@ Integrating *p5.clickable* buttons into your project is super easy:
 
 ```javascript
 function start() {
-    // ...
     myButton = createClickable();
-    // ...
 }
 
 function draw() {
+    myButton.register();
     // ...
     if (myButton.isPressed()) {
         // Do something
     }
-    // ...
 }
 ```
 
@@ -83,6 +81,33 @@ You can also use the `resize` function to change the size of a *Clickable*:
 myButton.resize(250, 100);
 ```
 
+### Register Interactions
+
+In order to detect when the user interacts with your *Clickables*, you have to `register()` them. Make sure to `register()` all the *Clickables* that you want the user to be able to interact with during the current frame. If a *Clickable* is not registered during a frame, it is treated as if it didn't exist and will not detect any interactions.
+
+
+```javascript
+function draw() {
+    // First register interactions
+    button1.register();
+    button2.register();
+
+    // Then check for interactions
+    if (button1.isPressed()) {
+        // ...
+    }
+    if (button2.isPressed())
+    {
+        // ...
+    }
+}
+```
+
+Interactions must be registered *before* you check for any interactions using the methods listed in the section below.
+
+*Clickables* registered **first** are considered to be **below** *Clickables* registered **later**. This means that if you `register()` *Clickable #1* and then *Clickable #2*, and the two overlap, only *Clickable #2* will detect interactions within the overlapping area.
+
+
 ### Interaction Methods
 
 The *Clickable* class provides six methods that can be used to check whether the user has interacted with the button: `onPress`, `isPressed`, `onRelease`, `onHoverStart`, `isHovered`, and `onHoverEnd`.
@@ -133,16 +158,6 @@ if (myButton.isHovered()) {
 if (myButton.onHoverEnd()) {
     // Do something!
 }
-```
-
-### Clickable Z-Order
-
-*Clickables* can overlap each other, so if you hover your mouse over a *Clickable* that is on top of another *Clickable*, only the topmost *Clickable* will be triggered! The order in which *Clickables* are processed is called *z-order*. *Clickables* with a greater *z-order* are placed **above** *Clickables* with a lower *z-order*, meaning they take priority when their areas overlap.
-
-To set the *z-order* of a clickable, use the `setZ` method:
-
-```javascript
-myButton.setZ(10);
 ```
 
 ## :beers: Contributing
