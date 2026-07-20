@@ -7,7 +7,7 @@
 
 Welcome! This is **p5.clickable**, a [p5.js](http://p5js.org) 2.x library that lets you create immediate-mode **buttons**. With *p5.clickable*, you can create buttons and define what happens when the user *presses*, *holds*, or *releases* them, as well as when the cursor *enters*, *hovers over*, or *leaves* them.
 
-## :telescope: Code Example
+## :telescope: Preview
 
 Integrating *p5.clickable* buttons into your project is super easy:
 
@@ -37,7 +37,7 @@ To include the *p5.clickable* library in your p5.js project, copy the [p5.clicka
 <script src="path/to/p5.clickable.js"></script>
 ```
 
-to the HTML file that includes your p5.js script, **after** the line that imports the p5 library but **before** any of your own code or the line that imports your own code. Check the [example project HTML file](p5.clickable/example/example.html) for more information.
+to the HTML file that includes your p5.js script, **after** the line that imports the p5 library but **before** any of your own code or the line that imports your own code.
 
 ### Creating a Clickable
 
