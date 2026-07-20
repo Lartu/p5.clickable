@@ -7,8 +7,6 @@
 
 Welcome! This is **p5.clickable**, a [p5.js](http://p5js.org) 2.x library that lets you create immediate-mode **buttons**. With *p5.clickable*, you can create buttons and define what happens when the user *presses*, *holds*, or *releases* them, as well as when the cursor *enters*, *hovers over*, or *leaves* them.
 
-Can't wait? Check out [this **live example**](https://lartu.github.io/p5.clickable/example/example.html) to see some of the things this library can do. Its source code is available in the [example](example) folder of this repository.
-
 ## :telescope: Code Example
 
 Integrating *p5.clickable* buttons into your project is super easy:
@@ -157,6 +155,49 @@ if (myButton.isHovered()) {
 ```javascript
 if (myButton.onHoverEnd()) {
     // Do something!
+}
+```
+
+## :safety_vest: Example
+
+This example draws three buttons: a blue one, a red one and a green one. It then places *Clickable* areas over them and prints different messages when the user interacts with each button:
+
+```javascript
+async function setup() {
+    createCanvas(200, 200);
+
+    button1 = createClickable();
+    button1.resize(100, 50);
+    button1.locate(0, 0);
+
+    button2 = createClickable();
+    button2.resize(50, 50);
+    button2.locate(25, 25);
+
+    button3 = createClickable();
+    button3.resize(50, 100);
+    button3.locate(0, 0);
+}
+
+function draw() {
+    // Draw all buttons
+    noStroke();
+    fill(255, 0, 0);
+    rect(0, 0, 100, 50);
+    fill(0, 255, 0);
+    rect(25, 25, 50, 50);
+    fill(0, 0, 255);
+    rect(0, 0, 50, 100);
+
+    // Register the buttons
+    button1.register();
+    button2.register();
+    button3.register();
+
+    // Check for interactions
+    if(button1.onPress()) print("Button 1 pressed!");
+    if(button2.onPress()) print("Button 2 pressed!");
+    if(button3.onPress()) print("Button 3 pressed!");
 }
 ```
 
