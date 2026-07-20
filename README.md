@@ -43,7 +43,7 @@ to the HTML file that includes your p5.js script, **after** the line that import
 
 ### Creating a Clickable
 
-**p5.clickable** provides `Clickable` objects that act as buttons (a *Clickable* is simply an interactable area, and it's invisible!). To create a button, just call the `createClickable` function, like this:
+**p5.clickable** provides `Clickable` objects that act as buttons (a *Clickable* is simply an interactable area, and it's invisible!). To create a button, just call the `createClickable()` function, like this:
 
 ```javascript
 myButton = createClickable();
@@ -60,7 +60,7 @@ myButton.x = 100;
 myButton.y = 200;
 ```
 
-You can also use the `locate` method to change the location of a *Clickable*:
+You can also use the `locate(x, y)` method to change the location of a *Clickable*:
 
 ```javascript
 myButton.locate(100, 200);
@@ -75,7 +75,7 @@ myButton.width = 250;
 myButton.height = 100;
 ```
 
-You can also use the `resize` function to change the size of a *Clickable*:
+You can also use the `resize(width, height)` function to change the size of a *Clickable*:
 
 ```javascript
 myButton.resize(250, 100);
@@ -110,9 +110,9 @@ Interactions must be registered *before* you check for any interactions using th
 
 ### Interaction Methods
 
-The *Clickable* class provides six methods that can be used to check whether the user has interacted with the button: `onPress`, `isPressed`, `onRelease`, `onHoverStart`, `isHovered`, and `onHoverEnd`.
+The *Clickable* class provides six methods that can be used to check whether the user has interacted with the button: `onPress()`, `isPressed()`, `onRelease()`, `onHoverStart()`, `isHovered()`, and `onHoverEnd()`.
 
-`onPress` returns `true` during the frame in which the user starts pressing the button with the left mouse button:
+`onPress()` returns `true` during the frame in which the user starts pressing the button with the left mouse button:
 
 ```javascript
 if (myButton.onPress()) {
@@ -120,7 +120,7 @@ if (myButton.onPress()) {
 }
 ```
 
-`isPressed` returns `true` while the left mouse button is being held within the button bounds, as long as the click was initiated within those bounds:
+`isPressed()` returns `true` while the left mouse button is being held within the button bounds, as long as the click was initiated within those bounds:
 
 ```javascript
 if (myButton.isPressed()) {
@@ -128,7 +128,7 @@ if (myButton.isPressed()) {
 }
 ```
 
-`onRelease` returns `true` during the frame in which the left mouse button is released over the button, as long as the press was also initiated within the button bounds:
+`onRelease()` returns `true` during the frame in which the left mouse button is released over the button, as long as the press was also initiated within the button bounds:
 
 ```javascript
 if (myButton.onRelease()) {
@@ -136,7 +136,7 @@ if (myButton.onRelease()) {
 }
 ```
 
-`onHoverStart` returns `true` during the frame in which the cursor enters the button bounds:
+`onHoverStart()` returns `true` during the frame in which the cursor enters the button bounds:
 
 ```javascript
 if (myButton.onHoverStart()) {
@@ -144,7 +144,7 @@ if (myButton.onHoverStart()) {
 }
 ```
 
-`isHovered` returns `true` while the cursor is inside the button bounds:
+`isHovered()` returns `true` while the cursor is inside the button bounds:
 
 ```javascript
 if (myButton.isHovered()) {
@@ -152,7 +152,7 @@ if (myButton.isHovered()) {
 }
 ```
 
-`onHoverEnd` returns `true` during the frame in which the cursor leaves the button bounds:
+`onHoverEnd()` returns `true` during the frame in which the cursor leaves the button bounds:
 
 ```javascript
 if (myButton.onHoverEnd()) {
