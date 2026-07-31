@@ -5,6 +5,9 @@
   <img src="https://img.shields.io/badge/current_version-2.0-green.svg">
 </p>
 
+> [!NOTE]  
+> Beware that p5.clickable has been migrated to support p5.js 2.x, and part of its API has changed compared to the p5.js 1.x version.
+
 Welcome! This is **p5.clickable**, a [p5.js](http://p5js.org) 2.x library that lets you create immediate-mode **buttons**. With *p5.clickable*, you can create buttons and define what happens when the user *presses*, *holds*, or *releases* them, as well as when the cursor *enters*, *hovers over*, or *leaves* them.
 
 ## :telescope: Preview
